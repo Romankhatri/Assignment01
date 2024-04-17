@@ -12,3 +12,4 @@ C:\Users\learn\Desktop\Trainingship\Assignment01\PeopleManagement\obj\Debug\net8
 C:\Users\learn\Desktop\Trainingship\Assignment01\PeopleManagement\obj\Debug\net8.0\PeopleManagement.pdb
 C:\Users\learn\Desktop\Trainingship\Assignment01\PeopleManagement\obj\Debug\net8.0\PeopleManagement.genruntimeconfig.cache
 C:\Users\learn\Desktop\Trainingship\Assignment01\PeopleManagement\obj\Debug\net8.0\ref\PeopleManagement.dll
+C:\Users\learn\Desktop\Trainingship\Assignment01\PeopleManagement\obj\Debug\net8.0\PeopleManagement.sourcelink.json

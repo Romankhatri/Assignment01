@@ -1,12 +1,12 @@
 //creating class CSVParser
 class CSVParser{
-    private List<Person> people;
+    private List<Person> people; //adding field as List<Person> people
 
     public CSVParser()
     {
         people = new List<Person>();
     }
-    public void Parse(string filePath)
+    public void Parse(string filePath) //adding parse to read each line of CSVparser file
     {
         using (var reader = new StreamReader(filePath))
         {
@@ -26,11 +26,11 @@ class CSVParser{
                 var jobTitle = data[8];
 
                 var person = new Person(index, userId, firstName, lastName, sex, email, phone, dateOfBirth, jobTitle);
-                people.Add(person);
+                people.Add(person); // creating instance Person & collect that int people collection
             }
         }
     }
-    public void PrintNames()
+    public void PrintNames() //method
     {
         foreach (var person in people)
         {
@@ -38,23 +38,3 @@ class CSVParser{
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//{person.Index} {person.UserId}  {person.Sex} {person.Email} {person.Phone} {person.DateOfBirth} {person.JobTitle}
