@@ -10,6 +10,9 @@ class CSVParser{
     {
         using (var reader = new StreamReader(filePath))
         {
+            // Skip the header line
+            reader.ReadLine();
+
             string line;
             #pragma warning disable CS8600 //converting null literal or possible null value or possible null value to non-nillable type.
             while((line = reader.ReadLine()) != null)
