@@ -1,29 +1,37 @@
 class PeopleReport
 {
-    public void SaveMales(List<Person> people, string outputPath)
+    public void SaveMales(List<Person> people)
     {
-        var males = people.Where(p => p.Sex.Equals("Male", StringComparison.OrdinalIgnoreCase));
-        WriteToFile(males, outputPath);
+        var males = people.Where(p => p.Sex == Gender.Male).ToList();
+        WriteToCsv(males, "males.csv");
     }
 
-    public void SaveFemales(List<Person> people, string outputPath)
+    public void SaveFemales(List<Person> people)
     {
-        var adultFemales = people.Where(p => p.Sex.Equals("Female", StringComparison.OrdinalIgnoreCase) &&
-                                              (DateTime.Now.Year - p.DateOfBirth.Year) >= 20);
-        WriteToFile(adultFemales, outputPath);
+        var adultFemales = people.Where(p => p.Sex == Gender.Female && (DateTime.Now.Year - p.dob.Year) >= 20).ToList();
+        WriteToCsv(adultFemales, "adultfemales.csv");
     }
 
-    public void SaveDotComUsers(List<Person> people, string outputPath)
+    public void SaveDotComUsers(List<Person> people)
     {
-        var dotComUsers = people.Where(p => p.Email.EndsWith("@example.com"));
-        var dataToWrite = dotComUsers.Select(p => $"{p.UserId},{p.Email},{p.Phone}");
-
-        File.WriteAllLines(outputPath, dataToWrite);
+        var dotComUsers = people.Where(p => p.Email.EndsWith("@example.com")).Select(p => new { p.userId, p.email, p.phone }).ToList();
+        using (StreamWriter writer = new StreamWriter("dotcomusers.csv"))
+        {
+            foreach (var user in dotComUsers)
+            {
+                writer.WriteLine($"{user.userId},{user.email},{user.phone}");
+            }
+        }
     }
 
-    private void WriteToFile(IEnumerable<Person> people, string outputPath)
+    private void WriteToCsv(List<Person> people, string fileName)
     {
-        var dataToWrite = people.Select(p => $"{p.Index},{p.UserId},{p.FirstName},{p.LastName},{p.Sex},{p.Email},{p.Phone},{p.DateOfBirth},{p.JobTitle}");
-        File.WriteAllLines(outputPath, dataToWrite);
+        using (StreamWriter writer = new StreamWriter(fileName))
+        {
+            foreach (var person in people)
+            {
+                writer.WriteLine($"{person.index},{person.userId},{person.firstName},{person.lastName},{person.sex},{person.email},{person.phone},{person.dob},{person.jobTitle}");
+            }
+        }
     }
 }

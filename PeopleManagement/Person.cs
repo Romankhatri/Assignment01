@@ -4,14 +4,14 @@ class Person
     public string UserId { get; set; } = "";
     public string FirstName { get; set; } = "";
     public string LastName { get; set; } = "";
-    public string Sex { get; set; } = "";
+    public Gender Sex { get; set; }
     public string Email { get; set; } = "";
     public string Phone { get; set; } = "";
     public DateTime DateOfBirth { get; set; }
     public string JobTitle { get; set; } = "";
 
     // Constructor
-    public Person(int index, string userId, string firstName, string lastName, string sex, string email, string phone, DateTime dateOfBirth, string jobTitle)
+    public Person(int index, string userId, string firstName, string lastName, Gender sex, string email, string phone, DateTime dateOfBirth, string jobTitle)
     {
         Index = index;
         UserId = userId;

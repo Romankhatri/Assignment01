@@ -22,7 +22,7 @@ class CSVParser{
                 var userId = data[1];
                 var firstName = data[2];
                 var lastName = data[3];
-                var sex = data[4];
+                var sex = Enum.Parse<Gender>(data[4]);
                 var email = data[5];
                 var phone = data [6];
                 var dateOfBirth = DateTime.TryParse(data[7], out DateTime date) ? date : DateTime.MinValue;
