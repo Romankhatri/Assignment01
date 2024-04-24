@@ -2,8 +2,13 @@
 {
     static void Main(string[] args)
     {
-        var parser = new CSVParser(); //CSVParser instance
-        parser.Parse(@"C:\Users\learn\Desktop\Trainingship\Assignment01\People.csv");
-        parser.PrintNames(); //call point
+        CSVParser csvParser = new CSVParser();
+        List<Person> people = new List<Person>();
+        csvParser.Parse(@"C:\Users\learn\Desktop\Trainingship\Assignment01\People.csv");
+
+        PeopleReport report = new PeopleReport();
+        report.SaveMales(people, "males.csv");
+        report.SaveFemales(people, "adultfemales.csv");
+        report.SaveDotComUsers(people, "dotcomusers.csv");
     }
 }

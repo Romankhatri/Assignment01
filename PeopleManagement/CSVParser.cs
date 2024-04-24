@@ -25,7 +25,7 @@ class CSVParser{
                 var sex = data[4];
                 var email = data[5];
                 var phone = data [6];
-                var dateOfBirth = data [7];
+                var dateOfBirth = DateTime.TryParse(data[7], out DateTime date) ? date : DateTime.MinValue;
                 var jobTitle = data[8];
 
                 var person = new Person(index, userId, firstName, lastName, sex, email, phone, dateOfBirth, jobTitle);

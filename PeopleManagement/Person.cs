@@ -1,19 +1,17 @@
-//creating class Person
 class Person
 {
-    //field names
-    public int Index;
-    public string UserId;
-    public string FirstName;
-    public string LastName;
-    public string Sex;
-    public string Email;
-    public string Phone;
-    public string DateOfBirth;
-    public string JobTitle;
+    public int Index { get; set; }
+    public string UserId { get; set; } = "";
+    public string FirstName { get; set; } = "";
+    public string LastName { get; set; } = "";
+    public string Sex { get; set; } = "";
+    public string Email { get; set; } = "";
+    public string Phone { get; set; } = "";
+    public DateTime DateOfBirth { get; set; }
+    public string JobTitle { get; set; } = "";
 
-    //constructor
-    public Person(int index, string userId, string firstName, string lastName, string sex, string email, string phone, string dateOfBirth, string jobTitle)
+    // Constructor
+    public Person(int index, string userId, string firstName, string lastName, string sex, string email, string phone, DateTime dateOfBirth, string jobTitle)
     {
         Index = index;
         UserId = userId;
